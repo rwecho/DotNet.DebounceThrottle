@@ -1,5 +1,5 @@
 ﻿
-using DotNet.DebounceThrottle;
+using DotNetCore.DebounceThrottle;
 
 var action = ThrottleDebounce.Debounce(() =>
 {

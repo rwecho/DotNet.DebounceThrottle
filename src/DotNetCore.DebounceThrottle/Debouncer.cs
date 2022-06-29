@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DotNet.DebounceThrottle
+namespace DotNetCore.DebounceThrottle
 {
     internal class Debouncer
     {

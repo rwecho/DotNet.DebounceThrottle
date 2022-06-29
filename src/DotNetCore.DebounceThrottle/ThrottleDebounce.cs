@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotNet.DebounceThrottle
+namespace DotNetCore.DebounceThrottle
 {
     /// <summary>
     /// Providers throttle and debounce function.
