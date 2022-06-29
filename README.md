@@ -16,7 +16,7 @@ while(true)
 ```
 ## Debounce
 Demonstrate how to use the debounce in code.
-```charp
+``` csharp
 var debounce = ThrottleDebounce.Debounce(action, 200);
 
 while(true)
