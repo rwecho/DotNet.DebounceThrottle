@@ -25,10 +25,8 @@ jobs:
         # Filepath of the project to be packaged, relative to root of repository
         PROJECT_FILE_PATH: src/DotNet.DebounceThrottle/DotNet.DebounceThrottle.csproj
         # NuGet package id, used for version detection & defaults to project name
-        
-        BUILD_CONFIGURATION: Release
      
-        NUGET_KEY: oy2nkh6w72nlob5ct3waisyxwkrbdvoe3icputdlsq6phm # optional
+        NUGET_KEY: ${{ secrets.NUGETKEY }} # optional
         # NuGet server uri hosting the packages, defaults to https://api.nuget.org
      
         INCLUDE_SYMBOLS: true # optional
