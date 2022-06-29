@@ -3,13 +3,13 @@
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
 	<LangVersion>latest</LangVersion>
-	<PackageId>Dotnet.DebounceThrotte</PackageId>
+	<PackageId>DotNet.DebounceThrotte</PackageId>
 	<Authors>Echo</Authors>
 	<Product>DebounceThrotte</Product>
 	<Version>0.0.1</Version>
 	<Description>Rate limit your actions by throttling and debouncing them.</Description>
-	<PackageProjectUrl>https://github.com/rwecho/DotnetDebounceThrottle</PackageProjectUrl>
-	<RepositoryUrl>https://github.com/rwecho/DotnetDebounceThrottle.git</RepositoryUrl>
+	<PackageProjectUrl>https://github.com/rwecho/DotNet.DebounceThrottle</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/rwecho/DotNet.DebounceThrottle.git</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
 	<PackageTags>throttle debounce rate limit rate-limit ratelimit</PackageTags>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>

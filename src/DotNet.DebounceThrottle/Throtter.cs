@@ -2,22 +2,22 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DotnetDebounceThrottle
+namespace DotNet.DebounceThrottle
 {
-    internal class Debouncer
+    internal class Throtter
     {
-        private readonly Action _callback;
-        private readonly int _delay;
-        private readonly bool _atBegin;
+        private Action _callback;
+        private int _delay;
+        private bool _noTrailing;
         private DateTime _lastExecutionTime;
         private Timer _tailingTimer;
         private TaskCompletionSource<bool> _timerTcs;
 
-        public Debouncer(Action callback, int delay = 200, bool atBegin = false)
+        public Throtter(Action callback, int delay = 200, bool noTrailing = true)
         {
             this._callback = callback;
             this._delay = delay;
-            this._atBegin = atBegin;
+            this._noTrailing = noTrailing;
         }
 
         private void Execute()
@@ -33,7 +33,7 @@ namespace DotnetDebounceThrottle
                 _timerTcs.SetException(exception);
             }
         }
-        
+
         public void Run()
         {
             lock (this)
@@ -41,7 +41,7 @@ namespace DotnetDebounceThrottle
                 this.InternalRun();
             }
         }
-        
+
         private void InternalRun()
         {
             _timerTcs = new TaskCompletionSource<bool>();
@@ -50,24 +50,14 @@ namespace DotnetDebounceThrottle
                 _tailingTimer.Dispose();
             }
 
-            var now = DateTime.Now;
-            if (now > _lastExecutionTime.AddMilliseconds(_delay))
+            if (DateTime.Now > _lastExecutionTime.AddMilliseconds(_delay))
             {
-                if (_atBegin)
-                {
-                    this.Execute();
-                }
-                else
-                {
-                    var delay = (long)(now - _lastExecutionTime).TotalMilliseconds;
-                    _tailingTimer = new
-                       Timer((state) => { this.Execute(); }, null, delay, Timeout.Infinite);
-                }
+                this.Execute();
             }
-            else
+            else if (!_noTrailing)
             {
-                // extend the next execute time.
-                _lastExecutionTime = DateTime.Now;
+                _tailingTimer = new
+                    Timer((state) => { this.Execute(); }, null, _delay, Timeout.Infinite);
             }
         }
 

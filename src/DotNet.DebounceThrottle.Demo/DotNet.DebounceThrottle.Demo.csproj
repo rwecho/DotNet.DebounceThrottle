@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DotnetDebounceThrottle\DotnetDebounceThrottle.csproj" />
+    <ProjectReference Include="..\DotNet.DebounceThrottle\DotNet.DebounceThrottle.csproj" />
   </ItemGroup>
 
 </Project>
