@@ -6,7 +6,7 @@
 	<PackageId>DotNetCore.DebounceThrotte</PackageId>
 	<Authors>Echo</Authors>
 	<Product>DebounceThrotte</Product>
-	<Version>0.0.1</Version>
+	<Version>0.0.2</Version>
 	<Description>Rate limit your actions by throttling and debouncing them.</Description>
 	<PackageProjectUrl>https://github.com/rwecho/DotNetCore.DebounceThrottle</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/rwecho/DotNetCore.DebounceThrottle.git</RepositoryUrl>
